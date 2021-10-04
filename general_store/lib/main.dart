@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
-// import 'package:general_store/pages/cart_page/cart_page.dart';
-import 'package:general_store/pages/notification_page/notification_page.dart';
-// import 'package:general_store/pages/splash_page/splash_page.dart';
+import 'package:general_store/pages/profile_page/profile_page.dart';
 import 'package:get/get.dart';
 
 import 'common/app_theme.dart';
@@ -19,7 +17,7 @@ class MyApp extends StatelessWidget {
       title: 'General Store',
       debugShowCheckedModeBanner: false,
       theme: appTheme(),
-      home: NotificationPage(),
+      home: ProfilePage(),
     );
   }
 }
