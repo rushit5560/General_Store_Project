@@ -26,7 +26,7 @@ class SpacerHeight extends StatelessWidget {
 class SpacerWidth extends StatelessWidget {
   final double value;
   // const SpacerWidth({Key? key, required this.value}) : super(key: key);
-  SpacerWidth(this.value);
+  const SpacerWidth(this.value);
 
   @override
   Widget build(BuildContext context) {
