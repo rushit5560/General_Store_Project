@@ -1,6 +1,8 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:general_store/common/custom_color.dart';
+import 'package:general_store/common/custom_widget.dart';
 import 'package:general_store/common/img_url.dart';
 import 'package:get/get.dart';
 import 'product_detail_controller.dart';
@@ -14,6 +16,7 @@ class ProductDetailPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+
       appBar: AppBar(
         title: Text(
           'Product Details',
@@ -22,6 +25,7 @@ class ProductDetailPage extends StatelessWidget {
           ),
         ),
       ),
+
       body: SingleChildScrollView(
         child: Column(
           children: [
@@ -32,31 +36,255 @@ class ProductDetailPage extends StatelessWidget {
               children: [
                 carouselSlider(),
                 carouselIndicator(),
-                // Positioned(
-                //   bottom: -18,
-                //   right: 10,
-                //   child: favButton(),
-                // ),
               ],
             ),
 
             Transform(
-              transform: Matrix4.translationValues(-5, -Get.height * 0.03, 0),
+              transform: Matrix4.translationValues(0, -Get.height * 0.03, 0),
               child: Container(
                 padding: EdgeInsets.symmetric(horizontal: 10),
                 child: Column(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  mainAxisSize: MainAxisSize.max,
                   children: [
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.end,
-                      children: [
-                        favButton()
-                      ],
+
+                    Container(
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        mainAxisSize: MainAxisSize.max,
+                        children: [
+
+                          // Favorite Button
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.end,
+                            children: [
+                              favButton()
+                            ],
+                          ),
+                          // SpacerHeight(10),
+
+                          // Product Detail
+                          Container(
+                            child: Text(
+                              'aasasaas assas asa sa sas as as as as as a asas ',
+                              maxLines: 1,
+                              overflow: TextOverflow.ellipsis,
+                              style: TextStyle(
+                                  fontWeight: FontWeight.bold,
+                                  fontSize: 18
+                              ),
+                            ),
+                          ),
+                          SpacerHeight(8),
+
+                          // Product Price & Ratings
+                          Container(
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: [
+                                Container(
+                                  child: Row(
+                                    children: [
+                                      Text(
+                                        '\$20.00',
+                                        style: TextStyle(
+                                            color: CustomColor.kPinkColor,
+                                            fontWeight: FontWeight.bold,
+                                            fontSize: 16
+                                        ),
+                                      ),
+                                      SpacerWidth(5),
+                                      Text(
+                                        '\$20.00',
+                                        style: TextStyle(
+                                            color: Colors.black,
+                                            fontSize: 16,
+                                            decoration: TextDecoration.lineThrough
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                ),
+                                Container(
+                                  child: Row(
+                                    children: [
+                                      Icon(
+                                        Icons.star,
+                                        color: CustomColor.kOrangeColor,
+                                      ),
+                                      SpacerWidth(5),
+                                      Text('4.5')
+                                    ],
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ),
+                          SpacerHeight(8),
+
+                          // Product Qty Inc Or Dec
+                          Container(
+                            decoration: BoxDecoration(
+                              border: Border.all(
+                                  color: Colors.grey
+                              ),
+                            ),
+                            child: Row(
+                              mainAxisSize: MainAxisSize.min,
+                              children: [
+
+                                GestureDetector(
+                                  onTap: () {
+                                    print('Dec');
+                                    if(productDetailController.productCount.value > 1){
+                                      productDetailController.productCount.value =
+                                          productDetailController.productCount.value - 1;
+                                    }
+                                  },
+                                  child: Container(
+                                    decoration: BoxDecoration(
+                                      border: Border(right: BorderSide(color: Colors.grey)),
+                                    ),
+                                    child: Icon(Icons.remove),
+                                  ),
+                                ),
+
+                                Padding(
+                                  padding: const EdgeInsets.symmetric(horizontal: 7),
+                                  child: Obx(
+                                        ()=> Text(
+                                      '${productDetailController.productCount.value}',
+                                      style: TextStyle(
+                                          fontSize: 16
+                                      ),
+                                    ),
+                                  ),
+                                ),
+
+                                GestureDetector(
+                                  onTap: () {
+                                    print('Inc');
+                                    if(productDetailController.productCount.value < 9){
+                                      productDetailController.productCount.value =
+                                          productDetailController.productCount.value + 1;
+                                    }
+                                  },
+                                  child: Container(
+                                    decoration: BoxDecoration(
+                                      border: Border(left: BorderSide(color: Colors.grey)),
+                                    ),
+                                    child: Icon(Icons.add),
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ),
+                          SpacerHeight(15),
+
+                          // TabBar Product Review & Detail
+                          DefaultTabController(
+                            length: 2,
+                            child: Column(
+                              children: [
+                                TabBar(
+                                  labelColor: CustomColor.kPinkColor,
+                                  unselectedLabelColor: Colors.black,
+                                  indicatorSize: TabBarIndicatorSize.label,
+                                  indicatorColor: CustomColor.kPinkColor,
+                                  tabs: [
+                                    Tab(text: 'Details'),
+                                    Tab(text: 'Review'),
+                                  ],
+                                ),
+
+                                Container(
+                                  height: 100,
+                                  child: TabBarView(
+                                    physics: NeverScrollableScrollPhysics(),
+                                    children: [
+                                      //Product Detail Text Part
+                                      Text('Product Details Product Details Product Details'),
+                                      // Product Review Part
+                                      Text('Review Review Review'),
+                                    ],
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ),
+                          SpacerHeight(15),
+                        ],
+                      ),
                     ),
+
+                    // BuyNow & AddToCart Button
+                    Material(
+                      borderRadius: BorderRadius.circular(15),
+                      elevation: 10,
+                      child: Container(
+                        child: Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                            children: [
+
+                              GestureDetector(
+                                onTap: (){
+                                  print('Click On Buy Now Button');
+                                },
+                                child: Container(
+                                  width: Get.width * 0.30,
+                                  padding: EdgeInsets.symmetric(vertical: 10),
+                                  decoration: BoxDecoration(
+                                    borderRadius: BorderRadius.circular(25),
+                                    color: CustomColor.kPinkColor,
+                                  ),
+                                  child: Center(
+                                    child: Text(
+                                      'Buy Now',
+                                      style: TextStyle(
+                                        fontWeight: FontWeight.bold,
+                                        color: Colors.white
+                                      ),
+                                    ),
+                                  ),
+                                ),
+                              ),
+
+                              GestureDetector(
+                                onTap: (){
+                                  print('Click On Add To Cart Button');
+                                },
+                                child: Container(
+                                  width: Get.width * 0.30,
+                                  padding: EdgeInsets.symmetric(vertical: 10),
+                                  decoration: BoxDecoration(
+                                    borderRadius: BorderRadius.circular(25),
+                                    color: CustomColor.kPinkColor,
+                                  ),
+                                  child: Center(
+                                    child: Text(
+                                      'Add To Cart',
+                                      style: TextStyle(
+                                        fontWeight: FontWeight.bold,
+                                          color: Colors.white
+                                      ),
+                                    ),
+                                  ),
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                      ),
+                    ),
+
 
                   ],
                 ),
               ),
             ),
+
           ],
         ),
       ),
