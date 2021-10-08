@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:general_store/common/img_url.dart';
+import 'package:general_store/pages/product_detail_page/product_detail_page.dart';
 import 'package:get/get.dart';
 
 import 'collection_model.dart';
@@ -59,7 +60,8 @@ class CollectionPage extends StatelessWidget {
           itemBuilder: (context, i){
             return GestureDetector(
               onTap: () {
-                print(collectionLists[i].collectionName);
+                // print(collectionLists[i].collectionName);
+                Get.to(()=> ProductDetailPage());
               },
               child: Stack(
                 children: [

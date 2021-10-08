@@ -92,7 +92,7 @@ class SignUpPage extends StatelessWidget {
         }
       },
       decoration: InputDecoration(
-        hintText: 'Email Id',
+        hintText: 'User Name',
         isDense: true,
         contentPadding: EdgeInsets.symmetric(horizontal: 15, vertical: 14),
         enabledBorder: OutlineInputBorder(

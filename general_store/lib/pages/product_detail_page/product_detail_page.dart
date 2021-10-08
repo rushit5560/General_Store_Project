@@ -16,7 +16,7 @@ class ProductDetailPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-
+      resizeToAvoidBottomInset: false,
       appBar: AppBar(
         title: Text(
           'Product Details',
@@ -27,269 +27,354 @@ class ProductDetailPage extends StatelessWidget {
       ),
 
       body: SingleChildScrollView(
-        child: Column(
+        child: Stack(
+          // mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          alignment: Alignment.bottomCenter,
           children: [
+            Container(
+              child: Column(
+                mainAxisSize: MainAxisSize.max,
+                children: [
+                  // Image Slider
+                  Stack(
+                    clipBehavior: Clip.none,
+                    alignment: Alignment.bottomCenter,
+                    children: [
+                      carouselSlider(),
+                      carouselIndicator(),
+                    ],
+                  ),
 
-            Stack(
-              clipBehavior: Clip.none,
-              alignment: Alignment.bottomCenter,
-              children: [
-                carouselSlider(),
-                carouselIndicator(),
-              ],
-            ),
-
-            Transform(
-              transform: Matrix4.translationValues(0, -Get.height * 0.03, 0),
-              child: Container(
-                padding: EdgeInsets.symmetric(horizontal: 10),
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  mainAxisSize: MainAxisSize.max,
-                  children: [
-
-                    Container(
+                  Transform(
+                    transform: Matrix4.translationValues(0, -Get.height * 0.03, 0),
+                    child: Container(
+                      padding: EdgeInsets.symmetric(horizontal: 10),
                       child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         mainAxisSize: MainAxisSize.max,
                         children: [
 
-                          // Favorite Button
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.end,
-                            children: [
-                              favButton()
-                            ],
-                          ),
-                          // SpacerHeight(10),
-
-                          // Product Detail
                           Container(
-                            child: Text(
-                              'aasasaas assas asa sa sas as as as as as a asas ',
-                              maxLines: 1,
-                              overflow: TextOverflow.ellipsis,
-                              style: TextStyle(
-                                  fontWeight: FontWeight.bold,
-                                  fontSize: 18
-                              ),
-                            ),
-                          ),
-                          SpacerHeight(8),
+                              child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                mainAxisSize: MainAxisSize.max,
+                                children: [
 
-                          // Product Price & Ratings
-                          Container(
-                            child: Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                              children: [
-                                Container(
-                                  child: Row(
+                                  // Favorite Button
+                                  Row(
+                                    mainAxisAlignment: MainAxisAlignment.end,
                                     children: [
-                                      Text(
-                                        '\$20.00',
-                                        style: TextStyle(
-                                            color: CustomColor.kPinkColor,
-                                            fontWeight: FontWeight.bold,
-                                            fontSize: 16
-                                        ),
-                                      ),
-                                      SpacerWidth(5),
-                                      Text(
-                                        '\$20.00',
-                                        style: TextStyle(
-                                            color: Colors.black,
-                                            fontSize: 16,
-                                            decoration: TextDecoration.lineThrough
-                                        ),
-                                      ),
+                                      favButton()
                                     ],
                                   ),
-                                ),
-                                Container(
-                                  child: Row(
-                                    children: [
-                                      Icon(
-                                        Icons.star,
-                                        color: CustomColor.kOrangeColor,
-                                      ),
-                                      SpacerWidth(5),
-                                      Text('4.5')
-                                    ],
-                                  ),
-                                ),
-                              ],
-                            ),
-                          ),
-                          SpacerHeight(8),
+                                  // SpacerHeight(10),
 
-                          // Product Qty Inc Or Dec
-                          Container(
-                            decoration: BoxDecoration(
-                              border: Border.all(
-                                  color: Colors.grey
-                              ),
-                            ),
-                            child: Row(
-                              mainAxisSize: MainAxisSize.min,
-                              children: [
-
-                                GestureDetector(
-                                  onTap: () {
-                                    print('Dec');
-                                    if(productDetailController.productCount.value > 1){
-                                      productDetailController.productCount.value =
-                                          productDetailController.productCount.value - 1;
-                                    }
-                                  },
-                                  child: Container(
-                                    decoration: BoxDecoration(
-                                      border: Border(right: BorderSide(color: Colors.grey)),
-                                    ),
-                                    child: Icon(Icons.remove),
-                                  ),
-                                ),
-
-                                Padding(
-                                  padding: const EdgeInsets.symmetric(horizontal: 7),
-                                  child: Obx(
-                                        ()=> Text(
-                                      '${productDetailController.productCount.value}',
+                                  // Product Detail
+                                  Container(
+                                    child: Text(
+                                      'Product title Product title Product title Product title Product title Product title Product title',
+                                      maxLines: 2,
+                                      overflow: TextOverflow.ellipsis,
                                       style: TextStyle(
-                                          fontSize: 16
+                                          fontWeight: FontWeight.bold,
+                                          fontSize: 18
                                       ),
                                     ),
                                   ),
-                                ),
+                                  SpacerHeight(8),
 
-                                GestureDetector(
-                                  onTap: () {
-                                    print('Inc');
-                                    if(productDetailController.productCount.value < 9){
-                                      productDetailController.productCount.value =
-                                          productDetailController.productCount.value + 1;
-                                    }
-                                  },
-                                  child: Container(
-                                    decoration: BoxDecoration(
-                                      border: Border(left: BorderSide(color: Colors.grey)),
+                                  // Product Price & Ratings
+                                  Container(
+                                    child: Row(
+                                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                      children: [
+                                        Container(
+                                          child: Row(
+                                            children: [
+                                              Text(
+                                                '\$20.00',
+                                                style: TextStyle(
+                                                    color: CustomColor.kPinkColor,
+                                                    fontWeight: FontWeight.bold,
+                                                    fontSize: 16
+                                                ),
+                                              ),
+                                              SpacerWidth(5),
+                                              Text(
+                                                '\$20.00',
+                                                style: TextStyle(
+                                                    color: Colors.black,
+                                                    fontSize: 16,
+                                                    decoration: TextDecoration.lineThrough
+                                                ),
+                                              ),
+                                            ],
+                                          ),
+                                        ),
+                                        Container(
+                                          child: Row(
+                                            children: [
+                                              Icon(
+                                                Icons.star,
+                                                color: CustomColor.kOrangeColor,
+                                              ),
+                                              SpacerWidth(5),
+                                              Text('4.5')
+                                            ],
+                                          ),
+                                        ),
+                                      ],
                                     ),
-                                    child: Icon(Icons.add),
                                   ),
-                                ),
-                              ],
-                            ),
-                          ),
-                          SpacerHeight(15),
+                                  SpacerHeight(8),
 
-                          // TabBar Product Review & Detail
-                          DefaultTabController(
-                            length: 2,
-                            child: Column(
-                              children: [
-                                TabBar(
-                                  labelColor: CustomColor.kPinkColor,
-                                  unselectedLabelColor: Colors.black,
-                                  indicatorSize: TabBarIndicatorSize.label,
-                                  indicatorColor: CustomColor.kPinkColor,
-                                  tabs: [
-                                    Tab(text: 'Details'),
-                                    Tab(text: 'Review'),
-                                  ],
-                                ),
+                                  // Product Qty Inc Or Dec
+                                  Container(
+                                    decoration: BoxDecoration(
+                                      border: Border.all(
+                                          color: Colors.grey
+                                      ),
+                                    ),
+                                    child: Row(
+                                      mainAxisSize: MainAxisSize.min,
+                                      children: [
 
-                                Container(
-                                  height: 100,
-                                  child: TabBarView(
-                                    physics: NeverScrollableScrollPhysics(),
-                                    children: [
-                                      //Product Detail Text Part
-                                      Text('Product Details Product Details Product Details'),
-                                      // Product Review Part
-                                      Text('Review Review Review'),
-                                    ],
+                                        GestureDetector(
+                                          onTap: () {
+                                            print('Dec');
+                                            if(productDetailController.productCount.value > 1){
+                                              productDetailController.productCount.value =
+                                                  productDetailController.productCount.value - 1;
+                                            }
+                                          },
+                                          child: Container(
+                                            decoration: BoxDecoration(
+                                              border: Border(right: BorderSide(color: Colors.grey)),
+                                            ),
+                                            child: Icon(Icons.remove),
+                                          ),
+                                        ),
+
+                                        Padding(
+                                          padding: const EdgeInsets.symmetric(horizontal: 7),
+                                          child: Obx(
+                                                ()=> Text(
+                                              '${productDetailController.productCount.value}',
+                                              style: TextStyle(
+                                                  fontSize: 16
+                                              ),
+                                            ),
+                                          ),
+                                        ),
+
+                                        GestureDetector(
+                                          onTap: () {
+                                            print('Inc');
+                                            if(productDetailController.productCount.value < 9){
+                                              productDetailController.productCount.value =
+                                                  productDetailController.productCount.value + 1;
+                                            }
+                                          },
+                                          child: Container(
+                                            decoration: BoxDecoration(
+                                              border: Border(left: BorderSide(color: Colors.grey)),
+                                            ),
+                                            child: Icon(Icons.add),
+                                          ),
+                                        ),
+                                      ],
+                                    ),
                                   ),
-                                ),
-                              ],
+                                  SpacerHeight(15),
+
+                                  // TabBar Product Review & Detail
+                                  DefaultTabController(
+                                    length: 2,
+                                    child: Column(
+                                      children: [
+                                        TabBar(
+                                          labelColor: CustomColor.kPinkColor,
+                                          unselectedLabelColor: Colors.black,
+                                          indicatorSize: TabBarIndicatorSize.label,
+                                          indicatorColor: CustomColor.kPinkColor,
+                                          tabs: [
+                                            Tab(text: 'Details'),
+                                            Tab(text: 'Review'),
+                                          ],
+                                        ),
+
+                                        Container(
+                                          height: Get.height * 0.17,
+                                          child: TabBarView(
+                                            physics: NeverScrollableScrollPhysics(),
+                                            children: [
+                                              //Product Detail Text Part
+                                              Text('Product Details Product Details Product Details'),
+                                              // Product Review Part
+                                              Text('Review Review Review'),
+                                            ],
+                                          ),
+                                        ),
+
+                                      ],
+                                    ),
+                                  ),
+                                  // SpacerHeight(15),
+
+                                ],
+                              ),
                             ),
-                          ),
-                          SpacerHeight(15),
+
                         ],
                       ),
                     ),
+                  ),
 
-                    // BuyNow & AddToCart Button
-                    Material(
-                      borderRadius: BorderRadius.circular(15),
-                      elevation: 10,
+                ],
+              ),
+            ),
+
+            // BuyNow & AddToCart Button
+            buyAndCartButton(),
+
+          ],
+        ),
+      ),
+
+
+      // bottomNavigationBar: bottomNavigation(),
+    );
+  }
+
+  Widget bottomNavigation() {
+    return BottomNavigationBar(
+      items: [
+        BottomNavigationBarItem(
+          icon: GestureDetector(
+            onTap: (){
+              print('Click On Buy Now Button');
+            },
+            child: Container(
+              width: Get.width * 0.30,
+              padding: EdgeInsets.symmetric(vertical: 10),
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(25),
+                color: CustomColor.kPinkColor,
+              ),
+              child: Center(
+                child: Text(
+                  'Buy Now',
+                  style: TextStyle(
+                      fontWeight: FontWeight.bold,
+                      color: Colors.white
+                  ),
+                ),
+              ),
+            ),
+          ),
+        ),
+
+        BottomNavigationBarItem(
+          icon: GestureDetector(
+            onTap: (){
+              print('Click On Add To Cart Button');
+            },
+            child: Container(
+              width: Get.width * 0.30,
+              padding: EdgeInsets.symmetric(vertical: 10),
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(25),
+                color: CustomColor.kPinkColor,
+              ),
+              child: Center(
+                child: Text(
+                  'Add To Cart',
+                  style: TextStyle(
+                      fontWeight: FontWeight.bold,
+                      color: Colors.white
+                  ),
+                ),
+              ),
+            ),
+          ),
+        ),
+      ],
+    );
+  }
+
+
+  // BuyNow & AddToCart Button
+  Widget buyAndCartButton() {
+    return Container(
+      child: Column(
+        children: [
+          SpacerHeight(15),
+          Material(
+            borderRadius: BorderRadius.circular(15),
+            elevation: 10,
+            child: Container(
+              child: Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  children: [
+
+                    GestureDetector(
+                      onTap: (){
+                        print('Click On Buy Now Button');
+                      },
                       child: Container(
-                        child: Padding(
-                          padding: const EdgeInsets.all(8.0),
-                          child: Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                            children: [
-
-                              GestureDetector(
-                                onTap: (){
-                                  print('Click On Buy Now Button');
-                                },
-                                child: Container(
-                                  width: Get.width * 0.30,
-                                  padding: EdgeInsets.symmetric(vertical: 10),
-                                  decoration: BoxDecoration(
-                                    borderRadius: BorderRadius.circular(25),
-                                    color: CustomColor.kPinkColor,
-                                  ),
-                                  child: Center(
-                                    child: Text(
-                                      'Buy Now',
-                                      style: TextStyle(
-                                        fontWeight: FontWeight.bold,
-                                        color: Colors.white
-                                      ),
-                                    ),
-                                  ),
-                                ),
-                              ),
-
-                              GestureDetector(
-                                onTap: (){
-                                  print('Click On Add To Cart Button');
-                                },
-                                child: Container(
-                                  width: Get.width * 0.30,
-                                  padding: EdgeInsets.symmetric(vertical: 10),
-                                  decoration: BoxDecoration(
-                                    borderRadius: BorderRadius.circular(25),
-                                    color: CustomColor.kPinkColor,
-                                  ),
-                                  child: Center(
-                                    child: Text(
-                                      'Add To Cart',
-                                      style: TextStyle(
-                                        fontWeight: FontWeight.bold,
-                                          color: Colors.white
-                                      ),
-                                    ),
-                                  ),
-                                ),
-                              ),
-                            ],
+                        width: Get.width * 0.30,
+                        padding: EdgeInsets.symmetric(vertical: 10),
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(25),
+                          color: CustomColor.kPinkColor,
+                        ),
+                        child: Center(
+                          child: Text(
+                            'Buy Now',
+                            style: TextStyle(
+                                fontWeight: FontWeight.bold,
+                                color: Colors.white
+                            ),
                           ),
                         ),
                       ),
                     ),
 
-
+                    GestureDetector(
+                      onTap: (){
+                        print('Click On Add To Cart Button');
+                      },
+                      child: Container(
+                        width: Get.width * 0.30,
+                        padding: EdgeInsets.symmetric(vertical: 10),
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(25),
+                          color: CustomColor.kPinkColor,
+                        ),
+                        child: Center(
+                          child: Text(
+                            'Add To Cart',
+                            style: TextStyle(
+                                fontWeight: FontWeight.bold,
+                                color: Colors.white
+                            ),
+                          ),
+                        ),
+                      ),
+                    ),
                   ],
                 ),
               ),
             ),
+          ),
 
-          ],
-        ),
+        ],
       ),
     );
   }
+
 
   Widget carouselSlider() {
     return CarouselSlider.builder(

@@ -4,6 +4,8 @@ import 'package:general_store/common/custom_color.dart';
 import 'package:general_store/common/custom_drawer.dart';
 import 'package:general_store/common/custom_widget.dart';
 import 'package:general_store/common/img_url.dart';
+import 'package:general_store/pages/cart_page/cart_page.dart';
+import 'package:general_store/pages/category_page/category_page.dart';
 import 'package:general_store/pages/collection_page/collection_page.dart';
 import 'package:get/get.dart';
 
@@ -53,12 +55,16 @@ class HomePage extends StatelessWidget {
 
         appBar: AppBar(
           elevation: 0,
+          title: Image(
+            image: AssetImage(ImgUrl.logo),
+          ),
           actions: [
             Padding(
               padding: const EdgeInsets.only(right: 10),
               child: GestureDetector(
                 onTap: () {
                   print('Cart Button');
+                  Get.to(()=> CartPage());
                 },
                 child: Icon(
                   Icons.shopping_bag,
@@ -118,6 +124,7 @@ class HomePage extends StatelessWidget {
               suffixIcon: GestureDetector(
                 onTap: () {
                   print('Search Text : ${searchController.text.trim()}');
+                  searchController.clear();
                 },
                 child: Icon(
                   Icons.search_rounded,
@@ -136,18 +143,15 @@ class HomePage extends StatelessWidget {
       height: 95,
       child: ListView.builder(
         physics: BouncingScrollPhysics(),
-        // shrinkWrap: true,
         scrollDirection: Axis.horizontal,
         itemCount: categoryLists.length,
-        // gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-        //   crossAxisCount: 1
-        // ),
         itemBuilder: (context, index){
           return Padding(
             padding: const EdgeInsets.symmetric(horizontal: 8.0),
             child: GestureDetector(
               onTap: () {
                 print('Clicked : ${categoryLists[index].catName}');
+                Get.to(()=> CollectionPage());
               },
               child: Column(
                 children: [
@@ -242,7 +246,10 @@ class HomePage extends StatelessWidget {
               return Padding(
                 padding: const EdgeInsets.only(right: 10, top: 5, bottom: 5),
                 child: GestureDetector(
-                  onTap: () => print(index),
+                  onTap: () {
+                    print(index);
+                    Get.to(()=> CategoryPage());
+                  },
                   child: Container(
                     height: 110, width: 110,
                     decoration: BoxDecoration(

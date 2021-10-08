@@ -1,5 +1,10 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:general_store/pages/collection_page/collection_page.dart';
+import 'package:general_store/pages/notification_page/notification_page.dart';
+import 'package:general_store/pages/profile_page/profile_page.dart';
+import 'package:general_store/pages/setting_page/setting_page.dart';
+import 'package:general_store/pages/signin_page/signin_page.dart';
 import 'package:get/get.dart';
 import 'custom_color.dart';
 import 'img_url.dart';
@@ -122,7 +127,7 @@ class CustomDrawer extends StatelessWidget {
     return ListTile(
       onTap: () {
         Get.back();
-        // Get.to(ProfilePage());
+        Get.to(() => ProfilePage());
       },
       leading: Icon(Icons.person_outline_outlined,color: Colors.black,),
       title: Text('Profile',
@@ -136,7 +141,7 @@ class CustomDrawer extends StatelessWidget {
     return ListTile(
       onTap: () {
         Get.back();
-        // Get.to(CollectionPage());
+        Get.to(() => CollectionPage());
       },
       leading: Icon(Icons.storefront_outlined,color: Colors.black,),
       title: Text('Collection',
@@ -150,7 +155,7 @@ class CustomDrawer extends StatelessWidget {
     return ListTile(
       onTap: () {
         Get.back();
-        // Get.to(SettingsPage());
+        Get.to(() => SettingPage());
       },
       leading: Icon(Icons.settings_outlined,color: Colors.black,),
       title: Text('Settings',
@@ -164,7 +169,7 @@ class CustomDrawer extends StatelessWidget {
     return ListTile(
       onTap: () {
         Get.back();
-        // Get.to(NotificationPage());
+        Get.to(() => NotificationPage());
       },
       leading: Icon(Icons.notifications_on_outlined,color: Colors.black,),
       title: Text('Notification',
@@ -179,7 +184,7 @@ class CustomDrawer extends StatelessWidget {
       child: ListTile(
         onTap: () {
           Get.back();
-          // Get.to(SignInPage());
+          Get.to(() => SignInPage());
         },
         leading: Icon(Icons.login_outlined,color: Colors.black,),
         title: Text('Logout',

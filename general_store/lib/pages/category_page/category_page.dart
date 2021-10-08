@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:general_store/common/img_url.dart';
+import 'package:general_store/pages/collection_page/collection_page.dart';
 import 'package:get/get.dart';
 
 class CategoryPage extends StatelessWidget {
@@ -30,6 +31,7 @@ class CategoryPage extends StatelessWidget {
               child: GestureDetector(
                 onTap: (){
                   print('Category Index Number : $index');
+                  Get.to(()=> CollectionPage());
                 },
                 child: Container(
                   height: Get.height * 0.12,
