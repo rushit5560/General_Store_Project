@@ -41,6 +41,7 @@ class CustomDrawer extends StatelessWidget {
                         divider(),
                         notificationButton(),
                         divider(),
+                        loginButton(),
                       ],
                     ),
                   ),
@@ -184,10 +185,26 @@ class CustomDrawer extends StatelessWidget {
       child: ListTile(
         onTap: () {
           Get.back();
-          Get.to(() => SignInPage());
+          // Get.to(() => SignInPage());
         },
         leading: Icon(Icons.login_outlined,color: Colors.black,),
         title: Text('Logout',
+          textScaleFactor: 1.2,
+          style: TextStyle(color: Colors.black),
+        ),
+      ),
+    );
+  }
+
+  Widget loginButton() {
+    return Container(
+      child: ListTile(
+        onTap: () {
+          Get.back();
+          Get.to(() => SignInPage());
+        },
+        leading: Icon(Icons.login_outlined,color: Colors.black,),
+        title: Text('Login',
           textScaleFactor: 1.2,
           style: TextStyle(color: Colors.black),
         ),

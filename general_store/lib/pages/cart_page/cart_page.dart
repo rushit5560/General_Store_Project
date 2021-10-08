@@ -41,15 +41,18 @@ class CartPage extends StatelessWidget {
         ),
       ),
 
-      body: Column(
-        children: [
-          const SpacerHeight(10),
-          itemCountAndCost(),
-          const SpacerHeight(10),
-          cartItemsList(),
-          const SpacerHeight(20),
-          proceedButton(),
-        ],
+      body: SingleChildScrollView(
+        child: Column(
+          children: [
+            const SpacerHeight(10),
+            itemCountAndCost(),
+            const SpacerHeight(10),
+            cartItemsList(),
+            const SpacerHeight(20),
+            proceedButton(),
+            const SpacerHeight(10),
+          ],
+        ),
       ),
     );
   }

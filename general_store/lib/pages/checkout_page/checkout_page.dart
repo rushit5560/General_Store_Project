@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:general_store/common/custom_color.dart';
@@ -5,6 +7,7 @@ import 'package:general_store/common/custom_widget.dart';
 import 'package:general_store/common/img_url.dart';
 import 'package:general_store/pages/order_confirmed_page/order_confirmed_page.dart';
 import 'package:get/get.dart';
+import 'package:google_maps_flutter/google_maps_flutter.dart';
 
 class CheckOutPage extends StatelessWidget {
   const CheckOutPage({Key? key}) : super(key: key);
@@ -53,11 +56,12 @@ class CheckOutPage extends StatelessWidget {
             children: [
               Expanded(
                 child: Container(
-                  height: Get.height * 0.10,
+                  height: Get.height * 0.15,
                   decoration: BoxDecoration(
                       color: Colors.grey,
                       borderRadius: BorderRadius.circular(10)
                   ),
+                  child: mapView(),
                 ),
               ),
               const SpacerWidth(10),
@@ -65,7 +69,7 @@ class CheckOutPage extends StatelessWidget {
                 child: Container(
                   child: Text(
                     '7000, WhiteField, Manchester Highway, London, 401203',
-                    maxLines: 3,
+                    maxLines: 4,
                     overflow: TextOverflow.ellipsis,
                     style: TextStyle(fontSize: 15),
                   ),
@@ -267,6 +271,35 @@ class CheckOutPage extends StatelessWidget {
               ),
             ),
           ),
+        ),
+      ),
+    );
+  }
+
+  Widget mapView() {
+    final CameraPosition _kGooglePlex = CameraPosition(
+      target: LatLng(21.1860, 72.7944),
+      zoom: 10,
+    );
+    Completer<GoogleMapController> _controller = Completer();
+
+    return ClipRRect(
+      borderRadius: BorderRadius.circular(10),
+      child: Container(
+        height: Get.height * 0.25,
+        width: Get.width,
+        decoration: BoxDecoration(
+          color: Colors.grey,
+          borderRadius: BorderRadius.circular(15),
+        ),
+        child: GoogleMap(
+          mapType: MapType.normal,
+          initialCameraPosition: _kGooglePlex,
+          onMapCreated: (GoogleMapController controller) {
+            _controller.complete(controller);
+          },
+          myLocationEnabled: true,
+          zoomControlsEnabled: false,
         ),
       ),
     );
