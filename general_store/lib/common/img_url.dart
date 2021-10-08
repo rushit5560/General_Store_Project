@@ -33,4 +33,11 @@ class ImgUrl {
   static const logo = mainPath + 'logo.png';
 
   static const servicebg = mainPath + 'servicebg.png';
+
+  static const visa = mainPath + 'visa.png';
+  static const visa1 = mainPath + 'visa1.png';
+  static const paypal = mainPath + 'paypal.png';
+  static const mastercard = mainPath + 'mastercard.png';
+
+  static const orderConfirm = mainPath + 'order_confirm.png';
 }

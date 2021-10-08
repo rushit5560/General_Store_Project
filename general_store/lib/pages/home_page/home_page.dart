@@ -55,9 +55,7 @@ class HomePage extends StatelessWidget {
 
         appBar: AppBar(
           elevation: 0,
-          title: Image(
-            image: AssetImage(ImgUrl.logo),
-          ),
+          title: Image(image: AssetImage(ImgUrl.logo)),
           actions: [
             Padding(
               padding: const EdgeInsets.only(right: 10),

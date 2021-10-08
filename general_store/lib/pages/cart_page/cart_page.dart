@@ -3,6 +3,7 @@ import 'package:general_store/common/custom_color.dart';
 import 'package:general_store/common/custom_widget.dart';
 import 'package:general_store/common/img_url.dart';
 import 'package:general_store/pages/cart_page/cart_model.dart';
+import 'package:general_store/pages/checkout_page/checkout_page.dart';
 import 'package:get/get.dart';
 
 class CartPage extends StatelessWidget {
@@ -229,6 +230,7 @@ class CartPage extends StatelessWidget {
       child: GestureDetector(
         onTap: () {
           print('Proceed Button');
+          Get.to(()=> CheckOutPage());
           // Get.to(() => CheckOutPage(),
           //     arguments: cartController.userCartId);
         },
