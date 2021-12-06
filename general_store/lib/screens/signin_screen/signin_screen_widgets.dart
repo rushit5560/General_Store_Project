@@ -50,6 +50,7 @@ class PasswordTextField extends StatelessWidget {
   Widget build(BuildContext context) {
     return TextFormField(
       cursorColor: AppColor.kPinkColor,
+      obscureText: true,
       controller: signInScreenController.passwordFieldController,
       validator: (value) => FieldValidator().validatePassword(value!),
       decoration: formInputDecoration('Password'),
@@ -71,6 +72,10 @@ class LoginButton extends StatelessWidget {
             print(
                 'Email : ${signInScreenController.emailIdFieldController.text.trim()} '
                     '\nPassword : ${signInScreenController.passwordFieldController.text.trim()}'
+            );
+            signInScreenController.getSignInData(
+              "${signInScreenController.emailIdFieldController.text.trim().toLowerCase()}",
+              "${signInScreenController.passwordFieldController.text.trim()}",
             );
           }
         },

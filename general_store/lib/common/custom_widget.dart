@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'app_color.dart';
 import 'img_url.dart';
 
 class SpacerHeight extends StatelessWidget {
@@ -181,6 +182,24 @@ class SocialButtons extends StatelessWidget {
             ),
           ),
         ],
+      ),
+    );
+  }
+}
+
+
+class CustomCircularProgressIndicator extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      width: Get.width,
+      height: Get.height,
+      color: Colors.transparent,
+      child: Center(
+        child: CircularProgressIndicator(
+          color: AppColor.kPinkColor,
+          backgroundColor: Colors.white,
+        ),
       ),
     );
   }
