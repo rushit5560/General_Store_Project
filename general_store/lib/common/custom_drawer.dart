@@ -1,12 +1,11 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:general_store/pages/collection_page/collection_page.dart';
-import 'package:general_store/pages/notification_page/notification_page.dart';
-import 'package:general_store/pages/profile_page/profile_page.dart';
-import 'package:general_store/pages/setting_page/setting_page.dart';
-import 'package:general_store/pages/signin_page/signin_page.dart';
+import 'package:general_store/screens/collection_screen/collection_screen.dart';
+import 'package:general_store/screens/notification_screen/notification_screen.dart';
+import 'package:general_store/screens/profile_screen/profile_screen.dart';
+import 'package:general_store/screens/setting_screen/setting_screen.dart';
+import 'package:general_store/screens/signin_screen/signin_screen.dart';
 import 'package:get/get.dart';
-import 'custom_color.dart';
 import 'img_url.dart';
 
 class CustomDrawer extends StatelessWidget {
@@ -128,7 +127,7 @@ class CustomDrawer extends StatelessWidget {
     return ListTile(
       onTap: () {
         Get.back();
-        Get.to(() => ProfilePage());
+        Get.to(() => ProfileScreen());
       },
       leading: Icon(Icons.person_outline_outlined,color: Colors.black,),
       title: Text('Profile',
@@ -142,7 +141,7 @@ class CustomDrawer extends StatelessWidget {
     return ListTile(
       onTap: () {
         Get.back();
-        Get.to(() => CollectionPage());
+        Get.to(() => CollectionScreen());
       },
       leading: Icon(Icons.storefront_outlined,color: Colors.black,),
       title: Text('Collection',
@@ -156,7 +155,7 @@ class CustomDrawer extends StatelessWidget {
     return ListTile(
       onTap: () {
         Get.back();
-        Get.to(() => SettingPage());
+        Get.to(() => SettingScreen());
       },
       leading: Icon(Icons.settings_outlined,color: Colors.black,),
       title: Text('Settings',
@@ -170,7 +169,7 @@ class CustomDrawer extends StatelessWidget {
     return ListTile(
       onTap: () {
         Get.back();
-        Get.to(() => NotificationPage());
+        Get.to(() => NotificationScreen());
       },
       leading: Icon(Icons.notifications_on_outlined,color: Colors.black,),
       title: Text('Notification',
@@ -201,7 +200,7 @@ class CustomDrawer extends StatelessWidget {
       child: ListTile(
         onTap: () {
           Get.back();
-          Get.to(() => SignInPage());
+          Get.to(() => SignInScreen());
         },
         leading: Icon(Icons.login_outlined,color: Colors.black,),
         title: Text('Login',

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:general_store/pages/index_page/index_page.dart';
+import 'package:general_store/screens/index_screen/index_screen.dart';
 import 'package:get/get.dart';
 import 'common/app_theme.dart';
 
@@ -16,7 +16,7 @@ class MyApp extends StatelessWidget {
       title: 'General Store',
       debugShowCheckedModeBanner: false,
       theme: appTheme(),
-      home: IndexPage(),
+      home: IndexScreen(),
     );
   }
 }
