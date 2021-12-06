@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
-
+import 'package:get/get.dart';
 import 'img_url.dart';
 
 class SpacerHeight extends StatelessWidget {
   final double value;
-  // const SpacerHeight({Key? key, required this.value}) : super(key: key);
   const SpacerHeight(this.value);
 
   @override
@@ -15,7 +14,6 @@ class SpacerHeight extends StatelessWidget {
 
 class SpacerWidth extends StatelessWidget {
   final double value;
-  // const SpacerWidth({Key? key, required this.value}) : super(key: key);
   const SpacerWidth(this.value);
 
   @override
@@ -25,7 +23,7 @@ class SpacerWidth extends StatelessWidget {
 }
 
 class CustomDivider extends StatelessWidget {
-  // const CustomDivider({Key? key}) : super(key: key);
+
 
   @override
   Widget build(BuildContext context) {
@@ -49,5 +47,141 @@ class BackGroundImage extends StatelessWidget {
   }
 }
 
+class Logo extends StatelessWidget {
+  const Logo({Key? key}) : super(key: key);
 
+  @override
+  Widget build(BuildContext context) {
+    return Image(
+      image: AssetImage(ImgUrl.logo),
+      width: Get.width * 0.6,
+    );
+  }
+}
 
+class LoginAndSignUpText extends StatelessWidget {
+  String text;
+  LoginAndSignUpText({required this.text});
+
+  @override
+  Widget build(BuildContext context) {
+    return Text(
+      '$text',
+      style: TextStyle(
+        fontWeight: FontWeight.bold,
+        fontSize: 25,
+      ),
+    );
+  }
+}
+
+InputDecoration formInputDecoration(String hintText) {
+  return InputDecoration(
+    hintText: '$hintText',
+    isDense: true,
+    contentPadding: EdgeInsets.symmetric(horizontal: 15, vertical: 14),
+    enabledBorder: OutlineInputBorder(
+      borderRadius: BorderRadius.circular(30),
+    ),
+    focusedBorder: OutlineInputBorder(
+      borderRadius: BorderRadius.circular(30),
+    ),
+    errorBorder: OutlineInputBorder(
+      borderRadius: BorderRadius.circular(30),
+    ),
+    focusedErrorBorder: OutlineInputBorder(
+      borderRadius: BorderRadius.circular(30),
+    ),
+  );
+}
+
+class OrLine extends StatelessWidget {
+  const OrLine({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Row(
+      children: [
+        Expanded(
+          child: Divider(
+            thickness: 1, color: Colors.black,
+            indent: 30, endIndent: 8,
+          ),
+        ),
+        Text(
+          'OR',
+          style: TextStyle(
+            fontSize: 16,
+          ),
+        ),
+        Expanded(
+          child: Divider(
+            thickness: 1, color: Colors.black,
+            indent: 8, endIndent: 30,
+          ),
+        ),
+      ],
+    );
+  }
+}
+
+class SocialButtons extends StatelessWidget {
+  const SocialButtons({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      height: 50,
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          GestureDetector(
+            onTap: () => print('----Clicked On FB Button----'),
+            child: Container(
+              height: 45, width: 45,
+              decoration: BoxDecoration(
+                  shape: BoxShape.circle,
+                  image: DecorationImage(
+                    image: AssetImage(ImgUrl.fb),
+                    fit: BoxFit.cover,
+                  )
+              ),
+            ),
+          ),
+
+          SpacerWidth(10),
+
+          GestureDetector(
+            onTap: () => print('----Clicked On Google Button----'),
+            child: Container(
+              height: 45, width: 45,
+              decoration: BoxDecoration(
+                  shape: BoxShape.circle,
+                  image: DecorationImage(
+                    image: AssetImage(ImgUrl.google),
+                    fit: BoxFit.cover,
+                  )
+              ),
+            ),
+          ),
+
+          SpacerWidth(10),
+
+          GestureDetector(
+            onTap: () => print('----Clicked On LinkedIn Button----'),
+            child: Container(
+              height: 45, width: 45,
+              decoration: BoxDecoration(
+                  shape: BoxShape.circle,
+                  image: DecorationImage(
+                    image: AssetImage(ImgUrl.linkedin),
+                    fit: BoxFit.cover,
+                  )
+              ),
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+}
