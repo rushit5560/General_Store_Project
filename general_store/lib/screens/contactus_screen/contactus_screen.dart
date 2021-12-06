@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:general_store/common/custom_color.dart';
+import 'package:general_store/common/app_color.dart';
 import 'package:general_store/common/custom_widget.dart';
 import 'package:get/get.dart';
 
@@ -66,7 +66,7 @@ class ContactUsScreen extends StatelessWidget {
           return 'Full Name Not Empty!';
         }
       },
-      cursorColor: CustomColor.kPinkColor,
+      cursorColor: AppColor.kPinkColor,
       decoration: InputDecoration(
         hintText: 'Full Name',
         isDense: true,
@@ -90,7 +90,7 @@ class ContactUsScreen extends StatelessWidget {
           return 'Email should be valid!';
         }
       },
-      cursorColor: CustomColor.kPinkColor,
+      cursorColor: AppColor.kPinkColor,
       decoration: InputDecoration(
           hintText: 'Email Id',
           isDense: true,
@@ -111,7 +111,7 @@ class ContactUsScreen extends StatelessWidget {
           return 'Subject Not Empty!';
         }
       },
-      cursorColor: CustomColor.kPinkColor,
+      cursorColor: AppColor.kPinkColor,
       decoration: InputDecoration(
           hintText: 'Subject',
           isDense: true,
@@ -133,7 +133,7 @@ class ContactUsScreen extends StatelessWidget {
         }
       },
       maxLines: 3,
-      cursorColor: CustomColor.kPinkColor,
+      cursorColor: AppColor.kPinkColor,
       decoration: InputDecoration(
           hintText: 'Comment',
           isDense: true,
@@ -155,7 +155,7 @@ class ContactUsScreen extends StatelessWidget {
           width: Get.width,
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(30),
-            color: CustomColor.kPinkColor,
+            color: AppColor.kPinkColor,
           ),
           child: Padding(
             padding: const EdgeInsets.symmetric(vertical: 12),

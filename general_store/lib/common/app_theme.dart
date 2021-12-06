@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import 'custom_color.dart';
+import 'app_color.dart';
 
 ThemeData appTheme() {
   return ThemeData.light().copyWith(
@@ -13,11 +13,11 @@ ThemeData appTheme() {
     ),
     bottomNavigationBarTheme: BottomNavigationBarThemeData(
       backgroundColor: Colors.white,
-      selectedIconTheme: IconThemeData(color: CustomColor.kPinkColor),
+      selectedIconTheme: IconThemeData(color: AppColor.kPinkColor),
       unselectedIconTheme: IconThemeData(color: Colors.black),
       selectedLabelStyle: TextStyle(color: Colors.black),
       showSelectedLabels: true,
-      selectedItemColor: CustomColor.kPinkColor,
+      selectedItemColor: AppColor.kPinkColor,
       showUnselectedLabels: true,
       unselectedItemColor: Colors.black,
       type: BottomNavigationBarType.fixed,

@@ -1,6 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:general_store/common/custom_color.dart';
+import 'package:general_store/common/app_color.dart';
 import 'package:general_store/common/custom_drawer.dart';
 import 'package:general_store/common/custom_widget.dart';
 import 'package:general_store/common/img_url.dart';
@@ -65,7 +65,7 @@ class HomeScreen extends StatelessWidget {
                 },
                 child: Icon(
                   Icons.shopping_bag,
-                  color: CustomColor.kPinkColor,
+                  color: AppColor.kPinkColor,
                 ),
               ),
             ),
@@ -102,7 +102,7 @@ class HomeScreen extends StatelessWidget {
           elevation: 10,
           borderRadius: BorderRadius.circular(30),
           child: TextFormField(
-            cursorColor: CustomColor.kPinkColor,
+            cursorColor: AppColor.kPinkColor,
             controller: searchController,
             onChanged: (value){
               searchValue = value;
@@ -125,7 +125,7 @@ class HomeScreen extends StatelessWidget {
                 },
                 child: Icon(
                   Icons.search_rounded,
-                  color: CustomColor.kPinkColor,
+                  color: AppColor.kPinkColor,
                 ),
               ),
             ),

@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:carousel_slider/carousel_slider.dart';
-import 'package:general_store/common/custom_color.dart';
+import 'package:general_store/common/app_color.dart';
 import 'package:general_store/common/custom_widget.dart';
 import 'package:general_store/common/img_url.dart';
 import 'package:get/get.dart';
@@ -94,7 +94,7 @@ class ProductDetailScreen extends StatelessWidget {
                                               Text(
                                                 '\$20.00',
                                                 style: TextStyle(
-                                                    color: CustomColor.kPinkColor,
+                                                    color: AppColor.kPinkColor,
                                                     fontWeight: FontWeight.bold,
                                                     fontSize: 16
                                                 ),
@@ -116,7 +116,7 @@ class ProductDetailScreen extends StatelessWidget {
                                             children: [
                                               Icon(
                                                 Icons.star,
-                                                color: CustomColor.kOrangeColor,
+                                                color: AppColor.kOrangeColor,
                                               ),
                                               SpacerWidth(5),
                                               Text('4.5')
@@ -193,10 +193,10 @@ class ProductDetailScreen extends StatelessWidget {
                                     child: Column(
                                       children: [
                                         TabBar(
-                                          labelColor: CustomColor.kPinkColor,
+                                          labelColor: AppColor.kPinkColor,
                                           unselectedLabelColor: Colors.black,
                                           indicatorSize: TabBarIndicatorSize.label,
-                                          indicatorColor: CustomColor.kPinkColor,
+                                          indicatorColor: AppColor.kPinkColor,
                                           tabs: [
                                             Tab(text: 'Details'),
                                             Tab(text: 'Review'),
@@ -259,7 +259,7 @@ class ProductDetailScreen extends StatelessWidget {
               padding: EdgeInsets.symmetric(vertical: 10),
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(25),
-                color: CustomColor.kPinkColor,
+                color: AppColor.kPinkColor,
               ),
               child: Center(
                 child: Text(
@@ -284,7 +284,7 @@ class ProductDetailScreen extends StatelessWidget {
               padding: EdgeInsets.symmetric(vertical: 10),
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(25),
-                color: CustomColor.kPinkColor,
+                color: AppColor.kPinkColor,
               ),
               child: Center(
                 child: Text(
@@ -328,7 +328,7 @@ class ProductDetailScreen extends StatelessWidget {
                         padding: EdgeInsets.symmetric(vertical: 10),
                         decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(25),
-                          color: CustomColor.kPinkColor,
+                          color: AppColor.kPinkColor,
                         ),
                         child: Center(
                           child: Text(
@@ -351,7 +351,7 @@ class ProductDetailScreen extends StatelessWidget {
                         padding: EdgeInsets.symmetric(vertical: 10),
                         decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(25),
-                          color: CustomColor.kPinkColor,
+                          color: AppColor.kPinkColor,
                         ),
                         child: Center(
                           child: Text(
@@ -422,7 +422,7 @@ class ProductDetailScreen extends StatelessWidget {
             height: 11,
             decoration: BoxDecoration(
               color: productDetailController.activeIndex.value == index
-                  ? CustomColor.kPinkColor
+                  ? AppColor.kPinkColor
                   : Colors.grey,
               shape: BoxShape.circle,
             ),
@@ -451,11 +451,11 @@ class ProductDetailScreen extends StatelessWidget {
               child: productDetailController.isFav.value
                   ? Icon(
                       Icons.favorite_rounded,
-                      color: CustomColor.kPinkColor,
+                      color: AppColor.kPinkColor,
                     )
                   : Icon(
                       Icons.favorite_border_rounded,
-                      color: CustomColor.kPinkColor,
+                      color: AppColor.kPinkColor,
                     ),
             ),
           ),

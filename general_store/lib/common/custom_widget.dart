@@ -1,16 +1,6 @@
 import 'package:flutter/material.dart';
 
-// Widget spacerHeight(double value){
-//   return SizedBox(height: value);
-// }
-
-// Widget spacerWidth(double value) {
-//   return SizedBox(width: value);
-// }
-
-// Widget customDivider() {
-//   return Divider(thickness: 1);
-// }
+import 'img_url.dart';
 
 class SpacerHeight extends StatelessWidget {
   final double value;
@@ -43,6 +33,21 @@ class CustomDivider extends StatelessWidget {
   }
 }
 
+class BackGroundImage extends StatelessWidget {
+  const BackGroundImage({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+        decoration: BoxDecoration(
+          image: DecorationImage(
+              image: AssetImage(ImgUrl.servicebg),
+              fit: BoxFit.cover
+          ),
+        )
+    );
+  }
+}
 
 
 

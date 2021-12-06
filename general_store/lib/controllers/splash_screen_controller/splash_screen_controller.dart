@@ -15,16 +15,12 @@ class SplashScreenController extends GetxController {
   }
 
   getOnBoardingValue() async {
-    print('-----getOnBoardingValue Function Run-----');
-
     SharedPreferences prefs = await SharedPreferences.getInstance();
     onBoardingValue = prefs.getBool("onboarding");
     print('Value : $onBoardingValue');
     if (onBoardingValue == true) {
-      print('----Go to IndexPage----');
       Get.off(() => IndexScreen());
     } else {
-      print('----Go to OnBoardingPage----');
       Get.off(() => OnBoardingScreen());
     }
   }

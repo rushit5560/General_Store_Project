@@ -2,7 +2,7 @@ import 'dart:async';
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:general_store/common/custom_color.dart';
+import 'package:general_store/common/app_color.dart';
 import 'package:general_store/common/custom_widget.dart';
 import 'package:general_store/common/img_url.dart';
 import 'package:general_store/screens/order_confirmed_screen/order_confirmed_screen.dart';
@@ -189,7 +189,7 @@ class CheckOutScreen extends StatelessWidget {
                       height: 45,
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(10),
-                        border: Border.all(color: CustomColor.kPinkColor),
+                        border: Border.all(color: AppColor.kPinkColor),
                         image: DecorationImage(
                           image: AssetImage(ImgUrl.visa),
                         ),
@@ -202,7 +202,7 @@ class CheckOutScreen extends StatelessWidget {
                       height: 45,
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(10),
-                        border: Border.all(color: CustomColor.kPinkColor),
+                        border: Border.all(color: AppColor.kPinkColor),
                         image: DecorationImage(
                           image: AssetImage(ImgUrl.mastercard),
                         ),
@@ -215,7 +215,7 @@ class CheckOutScreen extends StatelessWidget {
                       height: 45,
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(10),
-                        border: Border.all(color: CustomColor.kPinkColor),
+                        border: Border.all(color: AppColor.kPinkColor),
                         image: DecorationImage(
                           image: AssetImage(ImgUrl.paypal),
                         ),
@@ -228,7 +228,7 @@ class CheckOutScreen extends StatelessWidget {
                       height: 45,
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(10),
-                        border: Border.all(color: CustomColor.kPinkColor),
+                        border: Border.all(color: AppColor.kPinkColor),
                         image: DecorationImage(
                           image: AssetImage(ImgUrl.visa1),
                         ),
@@ -255,7 +255,7 @@ class CheckOutScreen extends StatelessWidget {
         child: Container(
           width: Get.width,
           decoration: BoxDecoration(
-            color: CustomColor.kPinkColor,
+            color: AppColor.kPinkColor,
             borderRadius: BorderRadius.circular(15),
           ),
           child: Padding(

@@ -1,6 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:general_store/common/custom_color.dart';
+import 'package:general_store/common/app_color.dart';
 import 'package:general_store/common/custom_widget.dart';
 import 'package:general_store/common/img_url.dart';
 import 'package:get/get.dart';
@@ -87,7 +87,7 @@ class ProfileScreen extends StatelessWidget {
                 Container(
                   child: Icon(
                     Icons.person_rounded,
-                    color: CustomColor.kPinkColor,
+                    color: AppColor.kPinkColor,
                   ),
                 ),
                 SpacerWidth(10),
@@ -114,7 +114,7 @@ class ProfileScreen extends StatelessWidget {
                 Container(
                   child: Icon(
                     Icons.location_on_rounded,
-                    color: CustomColor.kPinkColor,
+                    color: AppColor.kPinkColor,
                   ),
                 ),
                 SpacerWidth(10),
@@ -141,7 +141,7 @@ class ProfileScreen extends StatelessWidget {
                 Container(
                   child: Icon(
                     Icons.phone_iphone_rounded,
-                    color: CustomColor.kPinkColor,
+                    color: AppColor.kPinkColor,
                   ),
                 ),
                 SpacerWidth(10),
@@ -168,7 +168,7 @@ class ProfileScreen extends StatelessWidget {
                 Container(
                   child: Icon(
                     Icons.email_rounded,
-                    color: CustomColor.kPinkColor,
+                    color: AppColor.kPinkColor,
                   ),
                 ),
                 SpacerWidth(10),
@@ -196,7 +196,7 @@ class ProfileScreen extends StatelessWidget {
                   Container(
                     child: Icon(
                       Icons.lock_rounded,
-                      color: CustomColor.kPinkColor,
+                      color: AppColor.kPinkColor,
                     ),
                   ),
                   const SpacerWidth(10),
@@ -223,7 +223,7 @@ class ProfileScreen extends StatelessWidget {
                         profilePageController.isVisible.value
                             ? Icons.visibility_rounded
                             : Icons.visibility_off_rounded,
-                        color: CustomColor.kPinkColor,
+                        color: AppColor.kPinkColor,
                       ),
                     ),
                   ),
@@ -252,7 +252,7 @@ class ProfileScreen extends StatelessWidget {
         child: Container(
           width: Get.width,
           decoration: BoxDecoration(
-              color: CustomColor.kPinkColor,
+              color: AppColor.kPinkColor,
               borderRadius: BorderRadius.circular(25)),
           child: Center(
               child: Padding(
@@ -287,7 +287,7 @@ class ProfileScreen extends StatelessWidget {
                 TextFormField(
                   controller: fullNameController,
                   keyboardType: TextInputType.text,
-                  cursorColor: CustomColor.kPinkColor,
+                  cursorColor: AppColor.kPinkColor,
                   validator: (value) {
                     if (value!.isEmpty) {
                       return "Full Name Can\'t be Empty";
@@ -315,7 +315,7 @@ class ProfileScreen extends StatelessWidget {
                 TextFormField(
                   controller: addressController,
                   keyboardType: TextInputType.text,
-                  cursorColor: CustomColor.kPinkColor,
+                  cursorColor: AppColor.kPinkColor,
                   validator: (value) {
                     if (value!.isEmpty) {
                       return "Address Can\'t be Empty";
@@ -343,7 +343,7 @@ class ProfileScreen extends StatelessWidget {
                 TextFormField(
                   controller: phoneNoController,
                   keyboardType: TextInputType.number,
-                  cursorColor: CustomColor.kPinkColor,
+                  cursorColor: AppColor.kPinkColor,
                   maxLength: 10,
                   validator: (value) {
                     if (value!.isEmpty) {
@@ -376,7 +376,7 @@ class ProfileScreen extends StatelessWidget {
                 TextFormField(
                   controller: emailIdController,
                   keyboardType: TextInputType.emailAddress,
-                  cursorColor: CustomColor.kPinkColor,
+                  cursorColor: AppColor.kPinkColor,
                   validator: (value) {
                     if (value!.isEmpty) {
                       return "Email Id Can\'t be Empty";
@@ -407,7 +407,7 @@ class ProfileScreen extends StatelessWidget {
                 TextFormField(
                   controller: passwordController,
                   keyboardType: TextInputType.text,
-                  cursorColor: CustomColor.kPinkColor,
+                  cursorColor: AppColor.kPinkColor,
                   obscureText: true,
                   validator: (value) {
                     if (value!.isEmpty) {
@@ -481,7 +481,7 @@ class ProfileScreen extends StatelessWidget {
           ),
         ),
         Divider(
-          color: CustomColor.kPinkColor,
+          color: AppColor.kPinkColor,
           thickness: 1,
         ),
       ],
@@ -506,7 +506,7 @@ class ProfileScreen extends StatelessWidget {
         child: Container(
           width: Get.width,
           decoration: BoxDecoration(
-              color: CustomColor.kPinkColor,
+              color: AppColor.kPinkColor,
               borderRadius: BorderRadius.circular(25)),
           child: Center(
               child: Padding(

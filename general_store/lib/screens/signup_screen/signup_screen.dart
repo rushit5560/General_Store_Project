@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:general_store/common/custom_color.dart';
+import 'package:general_store/common/app_color.dart';
 import 'package:general_store/common/custom_widget.dart';
 import 'package:general_store/common/img_url.dart';
 import 'package:general_store/screens/signin_screen/signin_screen.dart';
@@ -81,7 +81,7 @@ class SignUpScreen extends StatelessWidget {
 
   Widget userNameField() {
     return TextFormField(
-      cursorColor: CustomColor.kPinkColor,
+      cursorColor: AppColor.kPinkColor,
       controller: userNameController,
       validator: (value){
         if(value!.isEmpty){
@@ -113,7 +113,7 @@ class SignUpScreen extends StatelessWidget {
 
   Widget emailIdField() {
     return TextFormField(
-      cursorColor: CustomColor.kPinkColor,
+      cursorColor: AppColor.kPinkColor,
       controller: emailIdController,
       validator: (value){
         if(value!.isEmpty){
@@ -145,7 +145,7 @@ class SignUpScreen extends StatelessWidget {
 
   Widget passwordField() {
     return TextFormField(
-      cursorColor: CustomColor.kPinkColor,
+      cursorColor: AppColor.kPinkColor,
       obscureText: true,
       controller: passwordController,
       validator: (value){
@@ -191,7 +191,7 @@ class SignUpScreen extends StatelessWidget {
           height: 45,
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(30),
-            color: CustomColor.kPinkColor,
+            color: AppColor.kPinkColor,
           ),
           child: Center(
             child: Text(
@@ -303,7 +303,7 @@ class SignUpScreen extends StatelessWidget {
           child: Text(
             'Sign In',
             style: TextStyle(
-              color: CustomColor.kPinkColor,
+              color: AppColor.kPinkColor,
               fontSize: 16,
               decoration: TextDecoration.underline,
             ),

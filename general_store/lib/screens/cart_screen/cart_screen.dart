@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:general_store/common/custom_color.dart';
+import 'package:general_store/common/app_color.dart';
 import 'package:general_store/common/custom_widget.dart';
 import 'package:general_store/common/img_url.dart';
 import 'package:general_store/models/cart_screen_model/cart_model.dart';
@@ -240,7 +240,7 @@ class CartScreen extends StatelessWidget {
         child: Container(
           width: Get.width,
           decoration: BoxDecoration(
-              color: CustomColor.kPinkColor,
+              color: AppColor.kPinkColor,
               borderRadius: BorderRadius.circular(25)),
           child: Center(
               child: Padding(
