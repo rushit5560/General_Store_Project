@@ -15,12 +15,14 @@ class CollectionListModule extends StatelessWidget {
       physics: BouncingScrollPhysics(),
       itemCount: collectionScreenController.collectionLists.length,
       gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-          crossAxisCount: 2,
-          mainAxisSpacing: 10, crossAxisSpacing: 10,
-          childAspectRatio: 0.9
+        crossAxisCount: 2,
+        mainAxisSpacing: 10,
+        crossAxisSpacing: 10,
+        childAspectRatio: 0.9,
       ),
-      itemBuilder: (context, i){
-        Datum1 collectionSingleItem = collectionScreenController.collectionLists[i];
+      itemBuilder: (context, i) {
+        Datum1 collectionSingleItem =
+            collectionScreenController.collectionLists[i];
         return collectionListTile(collectionSingleItem);
       },
     );
@@ -30,7 +32,7 @@ class CollectionListModule extends StatelessWidget {
     String imgUrl = ApiUrl.ApiMainPath + collectionSingleItem.showimg;
     return GestureDetector(
       onTap: () {
-        Get.to(()=> ProductDetailScreen());
+        Get.to(() => ProductDetailScreen());
       },
       child: Stack(
         children: [
@@ -38,12 +40,8 @@ class CollectionListModule extends StatelessWidget {
             decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(10),
                 image: DecorationImage(
-                    image: NetworkImage("$imgUrl"),
-                    fit: BoxFit.cover
-                )
-            ),
+                    image: NetworkImage("$imgUrl"), fit: BoxFit.cover)),
           ),
-
           Positioned(
             bottom: 15,
             child: Container(
@@ -61,9 +59,7 @@ class CollectionListModule extends StatelessWidget {
                   collectionSingleItem.productname,
                   maxLines: 1,
                   overflow: TextOverflow.ellipsis,
-                  style: TextStyle(
-                      fontSize: 15
-                  ),
+                  style: TextStyle(fontSize: 15),
                 ),
               ),
             ),
