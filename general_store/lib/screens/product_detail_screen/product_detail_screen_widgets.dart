@@ -1,9 +1,11 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:general_store/common/api_url.dart';
 import 'package:general_store/common/app_color.dart';
 import 'package:general_store/common/custom_widget.dart';
 import 'package:general_store/controllers/product_detail_screen_controller/product_detail_screen_controller.dart';
+import 'package:general_store/models/product_detail_screen_model/get_product_review_model.dart';
 import 'package:get/get.dart';
 
 class ProductImageSliderModule extends StatelessWidget {
@@ -322,7 +324,7 @@ class ProductDetailsAndReview extends StatelessWidget {
           ),
 
           Container(
-            height: Get.height * 0.17,
+            height: Get.height * 0.30,
             child: TabBarView(
               physics: NeverScrollableScrollPhysics(),
               children: [
@@ -343,7 +345,74 @@ class ProductDetailsAndReview extends StatelessWidget {
     return Text('${productDetailScreenController.productDetailLists[0].fullText}');
   }
   Widget _productReviewList() {
-    return Text('Review Review Review');
+    return ListView.builder(
+        itemCount: productDetailScreenController.productReviewList.length,
+      itemBuilder: (context, index){
+        Datum1 productSingleReview =
+        productDetailScreenController.productReviewList[index];
+          return _productReviewListTile(productSingleReview);
+      },
+    );
+  }
+
+  Widget _productReviewListTile(Datum1 productSingleReview) {
+    return Padding(
+      padding:
+      const EdgeInsets.symmetric(horizontal: 5, vertical: 10),
+      child: Row(
+        children: [
+          Expanded(
+            child: Container(
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Row(
+                    children: [
+                      Text(
+                        '${productSingleReview.username}',
+                        style: TextStyle(
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                      SizedBox(width: 10),
+                      Container(
+                        child: RatingBar.builder(
+                          itemCount: 5,
+                          ignoreGestures: true,
+                          unratedColor: AppColor.kLightOrangeColor,
+                          allowHalfRating: true,
+                          itemSize: 15,
+                          minRating: 1,
+                          glow: false,
+                          initialRating:
+                          productSingleReview.ratings.toDouble(),
+                          itemBuilder: (context, _) {
+                            return Icon(
+                              Icons.star_rounded,
+                              color: AppColor.kOrangeColor,
+                            );
+                          },
+                          onRatingUpdate: (rating) {
+                            print(rating);
+                          },
+                        ),
+                      ),
+                    ],
+                  ),
+                  Container(
+                    child: Text(
+                      productSingleReview.comment,
+                      maxLines: 2,
+                      overflow: TextOverflow.ellipsis,
+                    ),
+                  ),
+                ],
+              ),
+            ),
+          ),
+        ],
+      ),
+    );
   }
 }
 

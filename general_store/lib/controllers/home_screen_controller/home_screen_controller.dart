@@ -1,11 +1,10 @@
 import 'dart:convert';
-
 import 'package:flutter/material.dart';
 import 'package:general_store/common/api_url.dart';
 import 'package:general_store/common/img_url.dart';
 import 'package:general_store/models/home_screen_model/banner_model.dart';
 import 'package:general_store/models/home_screen_model/category_model.dart';
-import 'package:general_store/models/home_screen_model/popular_model.dart';
+import 'package:general_store/models/home_screen_model/featured_product_model.dart';
 import 'package:get/get.dart';
 import 'package:http/http.dart' as http;
 
@@ -13,6 +12,7 @@ class HomeScreenController extends GetxController {
   TextEditingController searchFieldController = TextEditingController();
   String? searchValue;
   RxList<Datum> bannerLists = RxList();
+  RxList<Datum1> featuredProductLists = RxList();
   RxInt activeIndex = 0.obs;
   RxBool isLoading = false.obs;
   RxBool isStatus = false.obs;
@@ -39,13 +39,6 @@ class HomeScreenController extends GetxController {
     ImgUrl.category1, ImgUrl.category2, ImgUrl.category3
   ];
 
-  List<PopularInfo> popularLists = [
-    PopularInfo(img: ImgUrl.popular1, name: 'Popular 1 Pen'),
-    PopularInfo(img: ImgUrl.popular2, name: 'Popular 2 Books'),
-    PopularInfo(img: ImgUrl.popular3, name: 'Popular 3 Papers'),
-    PopularInfo(img: ImgUrl.popular4, name: 'Popular 4 Pencils'),
-  ];
-
   getBannerData() async {
     isLoading(true);
     String url = ApiUrl.BannerApi;
@@ -67,7 +60,30 @@ class HomeScreenController extends GetxController {
     } finally {
       isLoading(false);
     }
-    // getFeaturedProductData();
+    getFeaturedProductData();
+  }
+
+  getFeaturedProductData() async {
+    isLoading(true);
+    String url = ApiUrl.FeaturedProductApi;
+    print('Url : $url');
+
+    try{
+      http.Response response = await http.get(Uri.parse(url));
+
+      FeaturedProductData featuredProductData = FeaturedProductData.fromJson(json.decode(response.body));
+      isStatus = featuredProductData.success.obs;
+
+      if(isStatus.value) {
+        featuredProductLists = featuredProductData.data.obs;
+      } else {
+        print('FeaturedProduct False False');
+      }
+    } catch(e) {
+      print('FeaturedProduct Error : $e');
+    } finally {
+      isLoading(false);
+    }
   }
 
 

@@ -21,6 +21,8 @@ dependencies:
   carousel_slider: ^4.0.0
   google_maps_flutter: ^2.0.6
   http: ^0.13.3
+  fluttertoast: ^8.0.8
+  flutter_rating_bar: ^4.0.0
 
 dev_dependencies:
   flutter_test:

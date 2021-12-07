@@ -1,5 +1,6 @@
 import 'dart:convert';
 import 'package:general_store/models/product_detail_screen_model/addtocart_model.dart';
+import 'package:general_store/models/product_detail_screen_model/get_product_review_model.dart';
 import 'package:http/http.dart' as http;
 import 'package:general_store/common/api_url.dart';
 import 'package:general_store/models/product_detail_screen_model/product_detail_model.dart';
@@ -14,6 +15,7 @@ class ProductDetailScreenController extends GetxController {
   RxInt productCount = 1.obs;
   RxInt activeIndex = 0.obs;
   RxList<Datum> productDetailLists = RxList();
+  RxList<Datum1> productReviewList = RxList();
   var userId;
 
   getProductDetailData() async {
@@ -39,10 +41,9 @@ class ProductDetailScreenController extends GetxController {
 
     } catch(e) {
       print('Product Details Error : $e');
-    } finally {
-      isLoading(false);
     }
-    // getProductReview();
+
+    getProductReview();
   }
 
   productAddToCart() async {
@@ -79,6 +80,65 @@ class ProductDetailScreenController extends GetxController {
     }
   }
 
+  /*addProductReview(ratings, comment) async {
+    isLoading(true);
+    String url = ApiUrl.AddProductReviewApi;
+    print('Url : $url');
+    print('productId : $productId');
+
+    try{
+      Map data = {
+        "userid": "$userId",
+        "productid": "$productId",
+        "ratings": "$ratings",
+        "comment": "$comment"
+      };
+
+      http.Response response = await http.post(Uri.parse(url), body: data);
+      AddProductReviewData addProductReviewData = AddProductReviewData.fromJson(json.decode(response.body));
+      isStatus = addProductReviewData.success.obs;
+
+      if(isStatus.value){
+        Fluttertoast.showToast(msg: "${addProductReviewData.message.toString()}");
+      } else {
+        print('Else False');
+      }
+    } catch(e) {
+      print('Add Product Review False');
+    } finally {
+      isLoading(false);
+    }
+    // getProductReview();
+  }*/
+
+  getProductReview() async {
+    isLoading(true);
+    String url = ApiUrl.ProductReviewApi;
+    print('Url : $url');
+
+    try{
+      Map data = {
+        "productid": "$productId"
+      };
+      print('data : $data');
+      http.Response response = await http.post(Uri.parse(url), body: data);
+      ProductReviewData productReviewData = ProductReviewData.fromJson(json.decode(response.body));
+
+      isStatus = productReviewData.success.obs;
+
+      if(isStatus.value){
+        productReviewList.clear();
+        productReviewList = productReviewData.data.obs;
+        print('productReviewList : $productReviewList');
+      } else {
+        print('Product Review False False');
+      }
+    } catch(e){
+      print('Product Review Error : $e');
+    } finally {
+      isLoading(false);
+    }
+  }
 
   @override
   void onInit() {
