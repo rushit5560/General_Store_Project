@@ -5,8 +5,8 @@ import 'package:shared_preferences/shared_preferences.dart';
 class CommonFunctions {
 
   // This Function Use For Hide Keyboard
-  hideKeyBoard(context) {
-    FocusScope.of(context).requestFocus(new FocusNode());
+  hideKeyBoard() {
+    FocusManager.instance.primaryFocus!.unfocus();
   }
 
   // This Function Use For Set UserId & Toke in sharedPreference
