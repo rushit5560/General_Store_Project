@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:general_store/common/api_url.dart';
 import 'package:general_store/controllers/category_screen_controller/category_screen_controller.dart';
 import 'package:general_store/models/category_screen_model/category_model.dart';
-import 'package:general_store/screens/collection_screen/collection_screen.dart';
+import 'package:general_store/screens/category_collection_screen/category_collection_screen.dart';
 import 'package:get/get.dart';
 
 class CategoryListModule extends StatelessWidget {
@@ -31,7 +31,12 @@ class CategoryListModule extends StatelessWidget {
         elevation: 10,
         child: GestureDetector(
           onTap: (){
-            Get.to(()=> CollectionScreen());
+            Get.to(()=> CategoryCollectionScreen(),
+              arguments: [
+                categorySingleItem.categoryId,
+                categorySingleItem.categoryName,
+              ],
+            );
           },
           child: Container(
             height: Get.height * 0.12,
