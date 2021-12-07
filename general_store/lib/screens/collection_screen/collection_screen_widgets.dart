@@ -32,7 +32,10 @@ class CollectionListModule extends StatelessWidget {
     String imgUrl = ApiUrl.ApiMainPath + collectionSingleItem.showimg;
     return GestureDetector(
       onTap: () {
-        Get.to(() => ProductDetailScreen());
+        print('id : ${collectionSingleItem.id}');
+        Get.to(() => ProductDetailScreen(),
+          arguments: collectionSingleItem.id,
+        );
       },
       child: Stack(
         children: [
