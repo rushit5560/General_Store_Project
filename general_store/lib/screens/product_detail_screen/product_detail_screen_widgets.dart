@@ -244,7 +244,8 @@ class ProductPriceAndRatings extends StatelessWidget {
 }
 // Use In ProductDetails Module
 class ProductQtyModule extends StatelessWidget {
-  final productDetailScreenController = Get.find<ProductDetailScreenController>();
+  final productDetailScreenController =
+      Get.find<ProductDetailScreenController>();
 
   @override
   Widget build(BuildContext context) {
@@ -252,10 +253,9 @@ class ProductQtyModule extends StatelessWidget {
       child: Row(
         mainAxisSize: MainAxisSize.min,
         children: [
-
           GestureDetector(
             onTap: () {
-              if(productDetailScreenController.productCount.value > 1){
+              if (productDetailScreenController.productCount > 1) {
                 productDetailScreenController.productCount.value =
                     productDetailScreenController.productCount.value - 1;
               }
@@ -268,22 +268,18 @@ class ProductQtyModule extends StatelessWidget {
               child: Icon(Icons.remove, size: 18),
             ),
           ),
-
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 7),
             child: Obx(
-                  ()=> Text(
-                '${productDetailScreenController.productCount.value}',
-                style: TextStyle(
-                    fontSize: 16
-                ),
+              () => Text(
+                '${productDetailScreenController.productCount}',
+                style: TextStyle(fontSize: 16),
               ),
             ),
           ),
-
           GestureDetector(
             onTap: () {
-              if(productDetailScreenController.productCount.value < 9){
+              if (productDetailScreenController.productCount < 9) {
                 productDetailScreenController.productCount.value =
                     productDetailScreenController.productCount.value + 1;
               }
@@ -301,6 +297,7 @@ class ProductQtyModule extends StatelessWidget {
     );
   }
 }
+
 // Use In ProductDetails Module
 class ProductDetailsAndReview extends StatelessWidget {
   final productDetailScreenController = Get.find<ProductDetailScreenController>();
@@ -396,7 +393,7 @@ class BuyAndCartButtons extends StatelessWidget {
 
                   GestureDetector(
                     onTap: () {
-                      print('Click On Add To Cart Button');
+                      productDetailScreenController.productAddToCart();
                     },
                     child: Container(
                       width: Get.width * 0.30,
