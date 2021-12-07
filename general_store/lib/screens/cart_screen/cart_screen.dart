@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:general_store/common/app_color.dart';
 import 'package:general_store/common/custom_widget.dart';
 import 'package:general_store/controllers/cart_screen_controller/cart_screen_controller.dart';
-import 'package:general_store/screens/checkout_screen/checkout_screen.dart';
 import 'package:get/get.dart';
 
 import 'cart_screen_widgets.dart';
@@ -11,8 +9,8 @@ class CartScreen extends StatelessWidget {
   final cartScreenController = Get.put(CartScreenController());
   @override
   Widget build(BuildContext context) {
+    cartScreenController.getUserDetailsFromPrefs();
     return Scaffold(
-
       appBar: AppBar(
         title: Text(
           'Cart',
