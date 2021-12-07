@@ -1,5 +1,4 @@
 
-
 class FieldValidator {
   String? validateFullName(String value) {
     if (value.isEmpty) {
@@ -9,11 +8,10 @@ class FieldValidator {
     if (!RegExp(r"^[A-Z a-z-]{2,25}$").hasMatch(value)) {
       return 'invalid first name';
     }
-
     return null;
   }
 
-  String ? validateEmail(String value) {
+  String? validateEmail(String value) {
     if (value.isEmpty) {
       return "Email is Required";
     } else if (!isNumeric(value) &&
@@ -25,7 +23,7 @@ class FieldValidator {
     }
   }
 
-  String ? validatePassword(String value) {
+  String? validatePassword(String value) {
     if (value.isEmpty) {
       return "password is Required";
     } else if (value.length < 6) {
@@ -35,18 +33,15 @@ class FieldValidator {
     }
   }
 
-  String ? validateMobile(String value) {
+  String? validateMobile(String value) {
 // Indian Mobile number are of 10 digit only
     if (value.isEmpty) {
       return "Mobile number is Required";
-    }
-    else if (value.length != 10){
+    } else if (value.length != 10) {
       return 'Mobile Number must be of 10 digit';
-    }
-    else{
+    } else {
       return null;
     }
-
   }
 
   bool isNumeric(String s) {
@@ -54,5 +49,27 @@ class FieldValidator {
       return false;
     }
     return double.tryParse(s) != null;
+  }
+
+  String? validateSubject(String value) {
+    if (value.isEmpty) {
+      return 'Subject is Required';
+    }
+
+    if (!RegExp(r"^[A-Z a-z-]{2,25}$").hasMatch(value)) {
+      return 'invalid first name';
+    }
+    return null;
+  }
+
+  String? validateComment(String value) {
+    if (value.isEmpty) {
+      return 'Comment is Required';
+    }
+
+    if (!RegExp(r"^[A-Z a-z-]{2,25}$").hasMatch(value)) {
+      return 'invalid first name';
+    }
+    return null;
   }
 }

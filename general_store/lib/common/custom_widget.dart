@@ -187,7 +187,6 @@ class SocialButtons extends StatelessWidget {
   }
 }
 
-
 class CustomCircularProgressIndicator extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -203,4 +202,28 @@ class CustomCircularProgressIndicator extends StatelessWidget {
       ),
     );
   }
+}
+
+InputDecoration contactUsFormDecoration(String hintText, double radius) {
+  return InputDecoration(
+    contentPadding: EdgeInsets.symmetric(horizontal: 15, vertical: 10),
+    hintText: '$hintText',
+    counterText: '',
+    enabledBorder: OutlineInputBorder(
+      borderRadius: BorderRadius.circular(radius),
+      borderSide: BorderSide(color: Colors.grey),
+    ),
+    focusedBorder: OutlineInputBorder(
+      borderRadius: BorderRadius.circular(radius),
+      borderSide: BorderSide(color: Colors.grey),
+    ),
+    errorBorder: OutlineInputBorder(
+      borderRadius: BorderRadius.circular(radius),
+      borderSide: BorderSide(color: Colors.grey),
+    ),
+    focusedErrorBorder: OutlineInputBorder(
+      borderRadius: BorderRadius.circular(radius),
+      borderSide: BorderSide(color: Colors.grey),
+    ),
+  );
 }

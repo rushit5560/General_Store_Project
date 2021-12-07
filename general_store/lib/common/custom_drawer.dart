@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:general_store/screens/collection_screen/collection_screen.dart';
+import 'package:general_store/screens/contactus_screen/contactus_screen.dart';
 import 'package:general_store/screens/notification_screen/notification_screen.dart';
 import 'package:general_store/screens/profile_screen/profile_screen.dart';
 import 'package:general_store/screens/setting_screen/setting_screen.dart';
@@ -19,7 +20,7 @@ class CustomDrawer extends StatelessWidget {
             children: [
               Expanded(
                 child: SingleChildScrollView(
-                  physics: BouncingScrollPhysics(),
+                  // physics: BouncingScrollPhysics(),
                   child: Container(
                     child: Column(
                       children: [
@@ -39,6 +40,8 @@ class CustomDrawer extends StatelessWidget {
                         settingsButton(),
                         divider(),
                         notificationButton(),
+                        divider(),
+                        contactUsButton(),
                         divider(),
                         loginButton(),
                       ],
@@ -173,6 +176,20 @@ class CustomDrawer extends StatelessWidget {
       },
       leading: Icon(Icons.notifications_on_outlined,color: Colors.black,),
       title: Text('Notification',
+        textScaleFactor: 1.2,
+        style: TextStyle(color: Colors.black),
+      ),
+    );
+  }
+
+  Widget contactUsButton() {
+    return ListTile(
+      onTap: () {
+        Get.back();
+        Get.to(()=> ContactUsScreen());
+      },
+      leading: Icon(Icons.mail_outline_rounded,color: Colors.black,),
+      title: Text('Contact Us',
         textScaleFactor: 1.2,
         style: TextStyle(color: Colors.black),
       ),
