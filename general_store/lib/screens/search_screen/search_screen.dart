@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:general_store/common/custom_widget.dart';
 
 class SearchScreen extends StatelessWidget {
   const SearchScreen({Key? key}) : super(key: key);
@@ -7,14 +8,7 @@ class SearchScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
 
-      appBar: AppBar(
-        title: Text(
-          'Search',
-          style: TextStyle(
-            color: Colors.black,
-          ),
-        ),
-      ),
+      appBar: customAppBar('Search'),
 
       body: Center(
         child: Text('Search Page'),

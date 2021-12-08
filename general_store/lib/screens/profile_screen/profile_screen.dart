@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:general_store/common/custom_widget.dart';
 import 'package:get/get.dart';
 import '../../controllers/profile_screen_controller/profile_screen_controller.dart';
 import 'profile_screen_widgets.dart';
@@ -10,14 +11,7 @@ class ProfileScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text(
-          'Profile',
-          style: TextStyle(
-            color: Colors.black,
-          ),
-        ),
-      ),
+      appBar: customAppBar('Profile'),
       body: SingleChildScrollView(
         child: Column(
           children: [

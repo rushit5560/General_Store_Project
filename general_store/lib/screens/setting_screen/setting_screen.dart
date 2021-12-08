@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:general_store/common/custom_widget.dart';
 import 'setting_screen_widgets.dart';
 
 class SettingScreen extends StatelessWidget {
@@ -8,14 +9,7 @@ class SettingScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
 
-      appBar: AppBar(
-        title: Text(
-          'Settings',
-          style: TextStyle(
-            color: Colors.black,
-          ),
-        ),
-      ),
+      appBar: customAppBar('Settings'),
 
       body: Column(
         children: [

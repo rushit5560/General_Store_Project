@@ -11,12 +11,7 @@ class CartScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     cartScreenController.getUserDetailsFromPrefs();
     return Scaffold(
-      appBar: AppBar(
-        title: Text(
-          'Cart',
-          style: TextStyle(color: Colors.black),
-        ),
-      ),
+      appBar: customAppBar('Cart'),
 
       body: Obx(
         () => cartScreenController.isLoading.value

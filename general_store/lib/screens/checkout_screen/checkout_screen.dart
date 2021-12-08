@@ -16,14 +16,7 @@ class CheckOutScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
 
-      appBar: AppBar(
-        title: Text(
-          'CheckOut',
-          style: TextStyle(
-            color: Colors.black,
-          ),
-        ),
-      ),
+      appBar: customAppBar('CheckOut'),
 
       body: SingleChildScrollView(
         child: Padding(

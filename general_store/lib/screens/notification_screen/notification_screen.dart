@@ -11,12 +11,7 @@ class NotificationScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
 
-      appBar: AppBar(
-        title: Text(
-          'Notification',
-          style: TextStyle(color: Colors.black),
-        ),
-      ),
+      appBar: customAppBar('Notification'),
 
       body: ListView.builder(
         itemCount: 10,

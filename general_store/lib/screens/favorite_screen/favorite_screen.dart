@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:general_store/common/custom_widget.dart';
 
 class FavoriteScreen extends StatelessWidget {
   const FavoriteScreen({Key? key}) : super(key: key);
@@ -7,14 +8,7 @@ class FavoriteScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
 
-      appBar: AppBar(
-        title: Text(
-          'Favourite',
-          style: TextStyle(
-            color: Colors.black,
-          ),
-        ),
-      ),
+      appBar: customAppBar('Favourite'),
 
       body: Center(
         child: Text('Favourite Page'),

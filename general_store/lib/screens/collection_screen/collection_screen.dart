@@ -12,14 +12,7 @@ class CollectionScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text(
-          'Collections',
-          style: TextStyle(
-            color: Colors.black,
-          ),
-        ),
-      ),
+      appBar: customAppBar('Collections'),
 
       body: Obx(
         () => collectionScreenController.isLoading.value

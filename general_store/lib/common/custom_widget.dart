@@ -3,6 +3,15 @@ import 'package:get/get.dart';
 import 'app_color.dart';
 import 'img_url.dart';
 
+PreferredSizeWidget customAppBar(String title) {
+  return AppBar(
+    title: Text(
+      '$title',
+      style: TextStyle(color: Colors.black),
+    ),
+  );
+}
+
 class SpacerHeight extends StatelessWidget {
   final double value;
   const SpacerHeight(this.value);

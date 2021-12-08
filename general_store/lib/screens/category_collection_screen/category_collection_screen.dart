@@ -11,14 +11,7 @@ class CategoryCollectionScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text(
-          'Categories Name',
-          style: TextStyle(
-            color: Colors.black,
-          ),
-        ),
-      ),
+      appBar: customAppBar('Categories Name'),
 
       body: Obx(
             () => categoryCollectionScreenController.isLoading.value

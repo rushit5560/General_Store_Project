@@ -11,14 +11,7 @@ class ContactUsScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text(
-            'Contact Us',
-          style: TextStyle(
-            color: Colors.black,
-          ),
-        ),
-      ),
+      appBar: customAppBar('Contact Us'),
       body: Obx(
         () => contactUsScreenController.isLoading.value
             ? CustomCircularProgressIndicator()
