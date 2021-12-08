@@ -10,14 +10,17 @@ import 'package:get/get.dart';
 
 class ProductImageSliderModule extends StatelessWidget {
   ProductImageSliderModule({Key? key}) : super(key: key);
-  final productDetailScreenController = Get.find<ProductDetailScreenController>();
+  final productDetailScreenController =
+      Get.find<ProductDetailScreenController>();
 
   @override
   Widget build(BuildContext context) {
     return CarouselSlider.builder(
-      itemCount: productDetailScreenController.productDetailLists[0].images.length,
+      itemCount:
+          productDetailScreenController.productDetailLists[0].images.length,
       itemBuilder: (context, index, realIndex) {
-        final imgUrl = ApiUrl.ApiMainPath + '${productDetailScreenController.productDetailLists[0].images[index]}';
+        final imgUrl = ApiUrl.ApiMainPath +
+            '${productDetailScreenController.productDetailLists[0].images[index]}';
         return buildImage(imgUrl, index);
       },
       options: CarouselOptions(
@@ -50,12 +53,13 @@ class ProductImageSliderModule extends StatelessWidget {
 
 class ProductImageSliderIndicator extends StatelessWidget {
   ProductImageSliderIndicator({Key? key}) : super(key: key);
-  final productDetailScreenController = Get.find<ProductDetailScreenController>();
+  final productDetailScreenController =
+      Get.find<ProductDetailScreenController>();
 
   @override
   Widget build(BuildContext context) {
     return Obx(
-          () => Row(
+      () => Row(
         mainAxisAlignment: MainAxisAlignment.center,
         children: List.generate(
           productDetailScreenController.productDetailLists[0].images.length,
@@ -87,7 +91,8 @@ class ProductImageSliderIndicator extends StatelessWidget {
 
 class ProductDetails extends StatelessWidget {
   ProductDetails({Key? key}) : super(key: key);
-  final productDetailScreenController = Get.find<ProductDetailScreenController>();
+  final productDetailScreenController =
+      Get.find<ProductDetailScreenController>();
 
   @override
   Widget build(BuildContext context) {
@@ -99,13 +104,11 @@ class ProductDetails extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           mainAxisSize: MainAxisSize.max,
           children: [
-
             Container(
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 mainAxisSize: MainAxisSize.max,
                 children: [
-
                   // Favorite Button
                   FavouriteButton(),
 
@@ -123,18 +126,16 @@ class ProductDetails extends StatelessWidget {
 
                   // Product Review & Detail
                   ProductDetailsAndReview(),
-
                 ],
               ),
             ),
-
           ],
         ),
       ),
     );
   }
-
 }
+
 // Use In ProductDetails Module
 class FavouriteButton extends StatelessWidget {
   FavouriteButton({Key? key}) : super(key: key);
@@ -147,41 +148,43 @@ class FavouriteButton extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.end,
       children: [
         GestureDetector(
-            onTap: () {
-              // productDetailScreenController.isFav.value =
-              // !productDetailScreenController.isFav.value;
-              // print('isFav ::: ${productDetailScreenController.isFav.value}');
-            },
-            child: Material(
-              elevation: 10,
-              borderRadius: BorderRadius.circular(35),
-              child: Container(
-                decoration:
-                    BoxDecoration(color: Colors.white, shape: BoxShape.circle),
-                child: Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child:
-                      /*productDetailScreenController.isFav.value
+          onTap: () {
+            // productDetailScreenController.isFav.value =
+            // !productDetailScreenController.isFav.value;
+            // print('isFav ::: ${productDetailScreenController.isFav.value}');
+          },
+          child: Material(
+            elevation: 10,
+            borderRadius: BorderRadius.circular(35),
+            child: Container(
+              decoration:
+                  BoxDecoration(color: Colors.white, shape: BoxShape.circle),
+              child: Padding(
+                padding: const EdgeInsets.all(8.0),
+                child:
+                    /*productDetailScreenController.isFav.value
                       ? Icon(
                     Icons.favorite_rounded,
                     color: AppColor.kPinkColor,
                   )
                       :*/
-                      Icon(
-                    Icons.favorite_border_rounded,
-                    color: AppColor.kPinkColor,
-                  ),
+                    Icon(
+                  Icons.favorite_border_rounded,
+                  color: AppColor.kPinkColor,
                 ),
               ),
             ),
           ),
+        ),
       ],
     );
   }
 }
+
 // Use In ProductDetails Module
 class ProductDescription extends StatelessWidget {
-  final productDetailScreenController = Get.find<ProductDetailScreenController>();
+  final productDetailScreenController =
+      Get.find<ProductDetailScreenController>();
 
   @override
   Widget build(BuildContext context) {
@@ -189,16 +192,15 @@ class ProductDescription extends StatelessWidget {
       '${productDetailScreenController.productDetailLists[0].productname}',
       maxLines: 2,
       overflow: TextOverflow.ellipsis,
-      style: TextStyle(
-          fontWeight: FontWeight.bold,
-          fontSize: 16
-      ),
+      style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
     );
   }
 }
+
 // Use In ProductDetails Module
 class ProductPriceAndRatings extends StatelessWidget {
-  final productDetailScreenController = Get.find<ProductDetailScreenController>();
+  final productDetailScreenController =
+      Get.find<ProductDetailScreenController>();
 
   @override
   Widget build(BuildContext context) {
@@ -213,8 +215,7 @@ class ProductPriceAndRatings extends StatelessWidget {
                 style: TextStyle(
                     color: AppColor.kPinkColor,
                     fontWeight: FontWeight.bold,
-                    fontSize: 15
-                ),
+                    fontSize: 15),
               ),
               SpacerWidth(5),
               Text(
@@ -222,8 +223,7 @@ class ProductPriceAndRatings extends StatelessWidget {
                 style: TextStyle(
                     color: Colors.black,
                     fontSize: 15,
-                    decoration: TextDecoration.lineThrough
-                ),
+                    decoration: TextDecoration.lineThrough),
               ),
             ],
           ),
@@ -244,6 +244,7 @@ class ProductPriceAndRatings extends StatelessWidget {
     );
   }
 }
+
 // Use In ProductDetails Module
 class ProductQtyModule extends StatelessWidget {
   final productDetailScreenController =
@@ -302,7 +303,8 @@ class ProductQtyModule extends StatelessWidget {
 
 // Use In ProductDetails Module
 class ProductDetailsAndReview extends StatelessWidget {
-  final productDetailScreenController = Get.find<ProductDetailScreenController>();
+  final productDetailScreenController =
+      Get.find<ProductDetailScreenController>();
 
   @override
   Widget build(BuildContext context) {
@@ -322,7 +324,6 @@ class ProductDetailsAndReview extends StatelessWidget {
               Tab(text: 'Review'),
             ],
           ),
-
           Container(
             height: Get.height * 0.30,
             child: TabBarView(
@@ -335,30 +336,30 @@ class ProductDetailsAndReview extends StatelessWidget {
               ],
             ),
           ),
-
         ],
       ),
     );
   }
 
   Widget _productDetailText() {
-    return Text('${productDetailScreenController.productDetailLists[0].fullText}');
+    return Text(
+        '${productDetailScreenController.productDetailLists[0].fullText}');
   }
+
   Widget _productReviewList() {
     return ListView.builder(
-        itemCount: productDetailScreenController.productReviewList.length,
-      itemBuilder: (context, index){
+      itemCount: productDetailScreenController.productReviewList.length,
+      itemBuilder: (context, index) {
         Datum1 productSingleReview =
-        productDetailScreenController.productReviewList[index];
-          return _productReviewListTile(productSingleReview);
+            productDetailScreenController.productReviewList[index];
+        return _productReviewListTile(productSingleReview);
       },
     );
   }
 
   Widget _productReviewListTile(Datum1 productSingleReview) {
     return Padding(
-      padding:
-      const EdgeInsets.symmetric(horizontal: 5, vertical: 10),
+      padding: const EdgeInsets.symmetric(horizontal: 5, vertical: 10),
       child: Row(
         children: [
           Expanded(
@@ -384,8 +385,7 @@ class ProductDetailsAndReview extends StatelessWidget {
                           itemSize: 15,
                           minRating: 1,
                           glow: false,
-                          initialRating:
-                          productSingleReview.ratings.toDouble(),
+                          initialRating: productSingleReview.ratings.toDouble(),
                           itemBuilder: (context, _) {
                             return Icon(
                               Icons.star_rounded,
@@ -417,7 +417,8 @@ class ProductDetailsAndReview extends StatelessWidget {
 }
 
 class BuyAndCartButtons extends StatelessWidget {
-  final productDetailScreenController = Get.find<ProductDetailScreenController>();
+  final productDetailScreenController =
+      Get.find<ProductDetailScreenController>();
 
   @override
   Widget build(BuildContext context) {
@@ -438,7 +439,6 @@ class BuyAndCartButtons extends StatelessWidget {
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-
                   GestureDetector(
                     onTap: () {
                       print('Click On Buy Now Button');
@@ -459,7 +459,6 @@ class BuyAndCartButtons extends StatelessWidget {
                       ),
                     ),
                   ),
-
                   GestureDetector(
                     onTap: () {
                       productDetailScreenController.productAddToCart();

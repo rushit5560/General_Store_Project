@@ -176,17 +176,26 @@ class BannerIndicator extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.center,
         children: List.generate(
           homeScreenController.bannerLists.length,
-          (index) => Container(
-            margin: EdgeInsets.all(4),
-            width: 11,
-            height: 11,
-            decoration: BoxDecoration(
-              color: homeScreenController.activeIndex.value == index
-                  ? AppColor.kPinkColor
-                  : Colors.grey,
-              shape: BoxShape.circle,
-            ),
-          ),
+          (index) => homeScreenController.activeIndex.value == index
+              ? Container(
+                  margin: EdgeInsets.all(4),
+                  width: 11,
+                  height: 11,
+                  decoration: BoxDecoration(
+                    color: AppColor.kPinkColor,
+                    shape: BoxShape.circle,
+                  ),
+                )
+              : Container(
+                  margin: EdgeInsets.all(4),
+                  width: 11,
+                  height: 11,
+                  decoration: BoxDecoration(
+                    border: Border.all(color: AppColor.kPinkColor),
+                    color: Colors.transparent,
+                    shape: BoxShape.circle,
+                  ),
+                ),
         ),
       ),
     );
