@@ -24,8 +24,7 @@ class SpacerWidth extends StatelessWidget {
 }
 
 class CustomDivider extends StatelessWidget {
-
-
+  const CustomDivider();
   @override
   Widget build(BuildContext context) {
     return Divider(thickness: 1);
@@ -61,7 +60,7 @@ class Logo extends StatelessWidget {
 }
 
 class LoginAndSignUpText extends StatelessWidget {
-  String text;
+  final text;
   LoginAndSignUpText({required this.text});
 
   @override

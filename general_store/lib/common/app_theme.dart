@@ -23,5 +23,6 @@ ThemeData appTheme() {
       type: BottomNavigationBarType.fixed,
       elevation: 0
     ),
+      bottomSheetTheme: BottomSheetThemeData(backgroundColor: Colors.white),
   );
 }
