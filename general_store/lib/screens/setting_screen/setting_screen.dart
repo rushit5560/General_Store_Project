@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'setting_screen_widgets.dart';
 
 class SettingScreen extends StatelessWidget {
   const SettingScreen({Key? key}) : super(key: key);
@@ -16,8 +17,10 @@ class SettingScreen extends StatelessWidget {
         ),
       ),
 
-      body: Center(
-        child: Text('Settings Page'),
+      body: Column(
+        children: [
+          ChangePasswordModule(),
+        ],
       ),
 
     );

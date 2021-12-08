@@ -39,7 +39,7 @@ class ContactUsScreenController extends GetxController {
 
       if(isStatus.value){
         Fluttertoast.showToast(msg: "${contactUsData.message.toString()}");
-        // Get.back();
+        Get.back();
       } else {
         print('Contact Us False');
       }
@@ -48,6 +48,5 @@ class ContactUsScreenController extends GetxController {
     } finally {
       isLoading(false);
     }
-    Get.back();
   }
 }
